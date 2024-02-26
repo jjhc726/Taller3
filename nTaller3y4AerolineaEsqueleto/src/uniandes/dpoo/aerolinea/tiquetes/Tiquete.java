@@ -15,7 +15,10 @@ public class Tiquete {
 		// TODO Auto-generated method stub
 		
 	}
-
+	public Cliente getCliente() {
+		return null;
+	}
+	
 	public Collection<?> getCodigo() {
 		// TODO Auto-generated method stub
 		return null;

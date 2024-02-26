@@ -11,7 +11,7 @@ public class VueloSobrevendidoException extends Exception
 
     public VueloSobrevendidoException( Vuelo vuelo )
     {
-        super( "El vuelo " + vuelo.getRuta( ).getCodigoRuta( ) + " del " + vuelo.getFecha( ) + " no tiene cupo" );
+        super( "El vuelo " + vuelo.getRuta( )+ vuelo.getCodigoRuta( ) + " del " + vuelo.getFecha( ) + " no tiene cupo" );
     }
 
 }

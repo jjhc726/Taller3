@@ -12,4 +12,9 @@ public class Vuelo {
 		return null;
 	}
 
+	public String getCodigoRuta() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

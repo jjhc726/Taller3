@@ -20,6 +20,10 @@ public class ClienteCorporativo extends Cliente
 		// TODO Auto-generated constructor stub
 	}
 
+	public ClienteCorporativo(String nombre) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
      * Crea un nuevo objeto de tipo a partir de un objeto JSON.
      * 

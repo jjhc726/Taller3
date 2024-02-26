@@ -8,7 +8,8 @@ import uniandes.dpoo.aerolinea.modelo.Aerolinea;
  * Su objetivo es sólo ilustrar que podría haber varias implementaciones de la misma interfaz, y que durante la ejecución alguien podría decidir cuál de estas implementaciones
  * usar.
  */
-public class PersistenciaAerolineaPlaintext implements IPersistenciaAerolinea
+
+public class PersistenciaAerolineaPlaintext
 {
     public void cargarAerolinea( String archivo, Aerolinea aerolinea )
     {

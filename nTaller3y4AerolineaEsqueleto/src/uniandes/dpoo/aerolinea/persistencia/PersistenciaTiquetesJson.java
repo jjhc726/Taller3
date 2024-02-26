@@ -85,7 +85,7 @@ public class PersistenciaTiquetesJson implements IPersistenciaTiquetes
         {
             JSONObject cliente = jClientes.getJSONObject( i );
             String tipoCliente = cliente.getString( TIPO_CLIENTE );
-            Cliente nuevoCliente = null;
+            ClienteCorporativo nuevoCliente = null;
             // En las siguientes líneas se utilizan dos estrategias para implementar la carga de objetos: en la primera estrategia, la carga de los objetos
             // lo hace alguien externo al objeto que se carga; en la segunda estrategia, los objetos saben cargarse.
             // En general es una mala idea mezclar las dos estrategias: acá lo hacemos para ilustrar las dos posibilidades y mostrar las ventajas y desventajas de cada una.
@@ -95,14 +95,17 @@ public class PersistenciaTiquetesJson implements IPersistenciaTiquetes
                 // 1. En esta estrategia, en ESTA clase se realiza todo lo que tiene que ver con cargar objetos de la clase ClienteNatural
                 // Al revisar el código de la clase ClienteNatural, no hay nada que tenga que ver con cargar o salvar.
                 // En este caso, la persistencia es una preocupación transversal de la que no se ocupa la clase ClienteNatural
-                String nombre = cliente.getString( NOMBRE_CLIENTE );
-                nuevoCliente = new ClienteNatural( nombre );
+                
+                
             }
             else
             {
+            	
                 // 2. En esta estrategia, en la clase ClienteCorporativo se realiza una parte de lo que tiene que ver con cargar objetos de la clase ClienteCorporativo.
                 // La clase ClienteCorporativo tiene un método para cargar y otro para salvar.
                 // En este caso, la persistencia es una preocupación de la cual se ocupa la clase ClienteCorporativo
+            	String nombre = cliente.getString( NOMBRE_CLIENTE );
+            	nuevoCliente = new ClienteCorporativo( nombre );
                 nuevoCliente = ClienteCorporativo.cargarDesdeJSON( cliente );
             }
             if( !aerolinea.existeCliente( nuevoCliente.getIdentificador( ) ) )
@@ -201,15 +204,15 @@ public class PersistenciaTiquetesJson implements IPersistenciaTiquetes
     private void salvarTiquetes( Aerolinea aerolinea, JSONObject jobject )
     {
         JSONArray jTiquetes = new JSONArray( );
-        for( Tiquete tiquete : aerolinea.getTiqu	etes( ) )
+        for( Tiquete tiquete : aerolinea.getTiquetes( ) )
         {
             JSONObject jTiquete = new JSONObject( );
             jTiquete.put( CODIGO_TIQUETE, tiquete.getCodigo( ) );
-            jTiquete.put( CODIGO_RUTA, tiquete.getVuelo( ).getRuta( ).getCodigoRuta( ) );
+            jTiquete.put( CODIGO_RUTA, ((Ruta) tiquete.getVuelo( ).getRuta( )).getCodigoRuta( ) );
             jTiquete.put( FECHA, tiquete.getVuelo( ).getFecha( ) );
             jTiquete.put( TARIFA, tiquete.getTarifa( ) );
             jTiquete.put( USADO, tiquete.esUsado( ) );
-            jTiquete.put( CLIENTE, tiquete.getClass( ).getIdentificador( ) );
+            //jTiquete.put( CLIENTE, tiquete.getClass( ).getIdentificador( ) );
 
             jTiquetes.put( jTiquete );
         }
