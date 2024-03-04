@@ -1,11 +1,12 @@
 package uniandes.dpoo.aerolinea.modelo.tarifas;
 
+import uniandes.dpoo.aerolinea.modelo.Aeropuerto;
 import uniandes.dpoo.aerolinea.modelo.Ruta;
 import uniandes.dpoo.aerolinea.modelo.Vuelo;
 import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
 
-public class CalculadoraTarifas {
-	private Double impuesto=0.28;
+public abstract class CalculadoraTarifas {
+	private static final Double impuesto=0.28;
 	private Vuelo vuelo;
 	private Cliente cliente;
 	
@@ -15,20 +16,18 @@ public class CalculadoraTarifas {
 		return 1;
 	}
 	
-	public Integer calcularCostoBase(Vuelo vuelo, Cliente cliente) {
-		return 1;
-	}
-	
-	public Double calcularPorcentajeDescuento(Cliente cliente) {
-		return 1;
-	}
+	public abstract Integer calcularCostoBase(Vuelo vuelo, Cliente cliente);
+	public abstract Double calcularPorcentajeDescuento(Cliente cliente);
 	
 	public Integer calcularDistanciaVuelo(Ruta ruta) {
-		return 1;
+		Aeropuerto A1 = ruta.getDestino();
+		Aeropuerto A2 = ruta.getDestino();
+		int distancia = Aeropuerto.calcularDistancia(A1, A2);
+		return distancia;
 	}
 	
 	public Integer calcularValorImpuesto(Integer costoBase) {
-		return 1;
+		return (int) (costoBase*impuesto);
 	}
 	
 	

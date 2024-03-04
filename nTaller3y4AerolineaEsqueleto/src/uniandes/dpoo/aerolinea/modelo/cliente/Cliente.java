@@ -1,5 +1,9 @@
 package uniandes.dpoo.aerolinea.modelo.cliente;
 
+import uniandes.dpoo.aerolinea.tiquetes.Tiquete;
+import uniandes.dpoo.aerolinea.modelo.Vuelo;
+import uniandes.dpoo.aerolinea.tiquetes.GeneradorTiquetes;
+
 public abstract class Cliente {
 	
 	
@@ -8,16 +12,19 @@ public abstract class Cliente {
 		
 	}
 	
-	public String getTipoCliente() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public abstract String getTipoCliente();
 
-	public String getIdentificador() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	public abstract String getIdentificador();
 	
-
+	public void agregarTiquete(Tiquete tiquete)
+	{
+		GeneradorTiquetes.registrarTiquete(tiquete);
+	}
+	
+	public int calcularValorTotalTiquetes()
+	{
+		
+	}
+	
+	
 }

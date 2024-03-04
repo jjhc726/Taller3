@@ -3,7 +3,7 @@ package uniandes.dpoo.aerolinea.modelo.tarifas;
 import uniandes.dpoo.aerolinea.modelo.Vuelo;
 import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
 
-public class CalculadoraTarifasTemporadaBaja{
+public class CalculadoraTarifasTemporadaBaja extends CalculadoraTarifas{
 	private Integer costoPorKmNatural = 600;
 	private Integer costoPorKmCorporativo = 900;
 	private Double descuentopeq = 0.02;

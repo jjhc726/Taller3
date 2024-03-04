@@ -17,7 +17,7 @@ public class Vuelo {
 		this.avion = avion;
 	}
 
-	public Object getRuta() {
+	public Ruta getRuta() {
 		// TODO Auto-generated method stub
 		return this.ruta;
 	}

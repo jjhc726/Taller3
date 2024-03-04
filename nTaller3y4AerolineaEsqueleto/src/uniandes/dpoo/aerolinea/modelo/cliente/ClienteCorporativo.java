@@ -1,6 +1,7 @@
 package uniandes.dpoo.aerolinea.modelo.cliente;
 
 import java.util.Collection;
+import java.util.Random;
 
 import org.json.JSONObject;
 
@@ -40,7 +41,9 @@ public class ClienteCorporativo extends Cliente
 	}
 	
 	public String getIdentificador() {
-		
+		Random random = new Random();
+		int id = random.nextInt(999999999);
+		return Integer.toString(id);
 	}
 
 
