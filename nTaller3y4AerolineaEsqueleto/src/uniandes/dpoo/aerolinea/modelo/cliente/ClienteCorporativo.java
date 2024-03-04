@@ -11,18 +11,38 @@ public class ClienteCorporativo extends Cliente
 {
     // TODO completar
     
+	private static final String CORPORATIVO = "Corporativo";
+	private static final int GRANDE = 1;
+	private static final int MEDIANA = 2;
+	private static final int PEQUENA = 3;
+	
+	private String nombreEmpresa;
+	private int tamanoEmpresa;
+	
 
-
-    private Collection<?> nombreEmpresa;
-	private Collection<?> tamanoEmpresa;
-
-	public ClienteCorporativo(String nombreEmpresa, int tam) {
+	public ClienteCorporativo(String nombreEmpresa, int tamano) {
 		// TODO Auto-generated constructor stub
+		this.nombreEmpresa = nombreEmpresa;
+		this.tamanoEmpresa = tamano;
+	}
+	
+	
+	public String getNombreEmpresa() {
+		return this.nombreEmpresa;
+	}
+	
+	public int getTamanoEmpresa() {
+		return this.tamanoEmpresa;
+	}
+	
+	public String getTipoCliente() {
+		return CORPORATIVO;
+	}
+	
+	public String getIdentificador() {
+		
 	}
 
-	public ClienteCorporativo(String nombre) {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
      * Crea un nuevo objeto de tipo a partir de un objeto JSON.

@@ -16,10 +16,10 @@ public class ClienteRepetidoException extends InformacionInconsistenteException
      */
     private String identificador;
 
-    public ClienteRepetidoException( String tipoCliente, String identificador )
+    public ClienteRepetidoException( Object object, String identificador )
     {
         super( "" );
-        this.tipoCliente = tipoCliente;
+        this.tipoCliente = (String) object;
         this.identificador = identificador;
     }
 
